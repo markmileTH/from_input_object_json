@@ -16,12 +16,14 @@
      <div class="container" style="margin-top: 50px; width: 400px;margin-bottom: 50px;border: solid black 1px; background-color: #5f4dee;color: white; border-radius: 25px;">
           <form action="" >
                <div class="form-group">
+                    <h1 style="color: #FFA500;">ข้อมูลส่วนตัว</h1>
                     <label for="">เลขบัตรประชาชน*</label>
                     <input type="text" required class="form-control" id="IDcardnumber" value="">
                </div>
                <div class="form-group">
                     <label for="sel1">เพศ</label>
                     <select class="form-control" id="sex">
+                         <option value="" selected>--------- เลือกเพศ ---------</option>
                          <option value="man">ชาย</option>
                          <option value="female">หญิง</option>
                          <option value="null">ไม่ระบุ</option>
@@ -38,6 +40,7 @@
                <div class="form-group">
                     <label for="sel1">ศาสนา</label>
                     <select class="form-control" id="religion">
+                         <option value="" selected>--------- เลือกศาสนา ---------</option>
                          <option value="Buddhist">พุทธ</option>
                          <option value="Christianity">คริสตร์</option>
                          <option value="islam">อิสลาม</option>
@@ -68,6 +71,7 @@
                <div class="form-group">
                     <label for="sel1">จังหวัด*</label>
                     <select class="form-control" required id="province">
+                         <option value="" selected>--------- เลือกจังหวัด ---------</option>
                          <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                          <option value="กระบี่">กระบี่ </option>
                          <option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -154,18 +158,19 @@
                </div>
 
                <div class="form-group">
-                    <label for="text">เบอร์โทรสัพบ้าน</label>
+                    <label for="text">โทรศัพท์บ้าน</label>
                     <input type="text" class="form-control" id="homePhone">
                </div>
 
                <div class="form-group">
-                    <label for="text">โทรสัพมือถือ*</label>
+                    <label for="text">โทรศัพท์มือถือ*</label>
                     <input type="text" required class="form-control" id="phoneNumber">
                </div>
 
                <div class="form-group">
                     <label for="majer">สาขาที่ชื่นชอบ</label>
-                    <select class="form-control" id="majer">
+                    <select class="form-control" id="major">
+                         <option value="" selected>--------- เลือกสาขาที่สนใจ ---------</option>
                          <option value="MTA">เทคโนโลยีมัลติมีเดีย แอนิเมชั่น และเกม</option>
                          <option value="ITD">เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</option>
                          <option value="DCM">ดิจิทัลคอนเทนต์และสื่อ</option>
@@ -200,13 +205,13 @@
                var PostNumber = $("#postNumber").val();
                var HomePhone = $("#homePhone").val();
                var PhoneNumber = $("#phoneNumber").val();
-               var Majer = $("#majer").val();
+               var Major = $("#major").val();
 
-               showdetail(CID, SEX, Fname, Lname, Religion, HAddress, Village, Road, District, City, Province, PostNumber, HomePhone, PhoneNumber, Majer);
+               showdetail(CID, SEX, Fname, Lname, Religion, HAddress, Village, Road, District, City, Province, PostNumber, HomePhone, PhoneNumber, Major);
           })
      })
 
-     function showdetail(CID, SEX, Fname, Lname, Religion, HAddress, Village, Road, District, City, Province, PostNumber, HomePhone, PhoneNumber, Majer) {
+     function showdetail(CID, SEX, Fname, Lname, Religion, HAddress, Village, Road, District, City, Province, PostNumber, HomePhone, PhoneNumber, Major) {
           
           var data = "{";
           data += '"Idcardnumber":"' + $("#IDcardnumber").val() + '",';
@@ -223,7 +228,7 @@
           data += '"PostNumber":"' + $("#postNumber").val() + '",';
           data += '"HomePhone":"' + $("#homePhone").val() + '",';
           data += '"PhoneNumber":"' + $("#phoneNumber").val() + '",';
-          data += '"MyfavoriteMejer":"' + $("#majer").val() + '"';
+          data += '"MyfavoriteMejor":"' + $("#major").val() + '"';
           data += "}";
           console.log(JSON.parse(data));
      }
